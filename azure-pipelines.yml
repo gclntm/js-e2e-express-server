@@ -6,6 +6,15 @@
 trigger:
 - main
 
+parameters:
+  - name: myString
+    displayName: string
+    type: string
+    default: 'world'
+    values:
+    - world
+    - mondo
+
 pool:
   vmImage: ubuntu-latest
 
@@ -43,4 +52,8 @@ steps:
     artifactName: npm
   displayName: 'Publish npm artifact'
 
-
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Hello, {{ parameters.myString }}!
+        displayName: 'Run a one-line script'
