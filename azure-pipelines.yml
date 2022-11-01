@@ -56,4 +56,5 @@ steps:
   inputs:
     script: |
       echo Hello, $(GREETINGS)!
-        displayName: 'Run a one-line script'
+      echo Hello, {{ parameters.myString }}!
+  displayName: 'Run a one-line script'
